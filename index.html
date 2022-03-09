@@ -32,11 +32,15 @@
         [v-cloak]{
             display: none;
         }
+        input{
+            margin: 10px;
+            display: block;
+        }
     </style>
 </head>
 <body>
 <div id="app" v-cloak>
-
+    <login-form/>
     {{ greeting }}
     <input v-model="greeting" @keyup.enter="greet" type="number"/>
     <hr/>
@@ -68,6 +72,20 @@
             },
             greet(){
                 console.log(this.greeting)
+            }
+        }
+    })
+    app.component('login-form',{
+        template : `
+        <form>
+        <h1>{{title}}</h1>
+        <input type="text"/>
+        <input type="password"/>
+        </form>
+        `,
+        data(){
+            return{
+                title : "Login Form"
             }
         }
     })
