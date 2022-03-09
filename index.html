@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Learn VueJS</title>
-
+    <style>
+        .box {
+            background-color: purple;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
     {{ greeting }}
     <input v-model="greeting" />
+    <hr/>
+    <div v-if="isVisible" class="box"></div>
 </div>
 
 <script src="https://unpkg.com/vue@3"></script>
@@ -16,7 +24,8 @@
     let app = Vue.createApp({
         data : function (){
             return {
-                greeting : "hello VueJS 3 !"
+                greeting : "hello VueJS 3 !",
+                isVisible : false
             }
         }
     })
