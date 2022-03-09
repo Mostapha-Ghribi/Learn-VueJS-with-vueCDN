@@ -24,6 +24,11 @@
             height: 200px;
             width: 200px;
         }
+        .boxToggle {
+            background-color: #154775;
+            height: 200px;
+            width: 200px;
+        }
         [v-cloak]{
             display: none;
         }
@@ -43,6 +48,8 @@
     <!--
     <div v-show="isVisibleShow" class="box"></div>
     -->
+    <button @click="toggle">Toggle Box</button>
+    <div v-if="boxIsVisible" class="boxToggle"></div>
 </div>
 
 <script src="https://unpkg.com/vue@3"></script>
@@ -51,7 +58,13 @@
         data : function (){
             return {
                 greeting : 1,
-                isVisibleShow : true
+                isVisibleShow : true,
+                boxIsVisible : false
+            }
+        },
+        methods : {
+            toggle(){
+                this.boxIsVisible = !this.boxIsVisible
             }
         }
     })
