@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <title>Learn VueJS</title>
     <style>
-        .box {
+        .boxIF {
             background-color: purple;
             height: 200px;
             width: 200px;
         }
-        .box2 {
+        .boxIF_ELSE {
             background-color: red;
+            height: 200px;
+            width: 200px;
+        }
+        .boxELSE {
+            background-color: black;
+            height: 200px;
+            width: 200px;
+        }
+        .box {
+            background-color: green;
             height: 200px;
             width: 200px;
         }
@@ -18,11 +28,18 @@
 </head>
 <body>
 <div id="app">
+
     {{ greeting }}
-    <input v-model="greeting" />
+    <input v-model="greeting" type="number"/>
     <hr/>
-    <div v-if="isVisibleIF" class="box"></div>
-    <div v-show="isVisibleShow" class="box2"></div>
+
+    <div v-if="greeting === 1" class="boxIF"></div>
+    <div v-else-if="greeting === 2" class="boxIF_ELSE"></div>
+    <div v-else class="boxELSE"></div>
+
+    <!--
+    <div v-show="isVisibleShow" class="box"></div>
+    -->
 </div>
 
 <script src="https://unpkg.com/vue@3"></script>
@@ -30,8 +47,7 @@
     let app = Vue.createApp({
         data : function (){
             return {
-                greeting : "hello VueJS 3 !",
-                isVisibleIF : false,
+                greeting : 1,
                 isVisibleShow : true
             }
         }
