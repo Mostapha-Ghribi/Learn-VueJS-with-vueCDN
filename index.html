@@ -38,7 +38,7 @@
 <div id="app" v-cloak>
 
     {{ greeting }}
-    <input v-model="greeting" type="number"/>
+    <input v-model="greeting" @keyup.enter="greet" type="number"/>
     <hr/>
 
     <div v-if="greeting === 1" class="boxIF"></div>
@@ -65,6 +65,9 @@
         methods : {
             toggle(){
                 this.boxIsVisible = !this.boxIsVisible
+            },
+            greet(){
+                console.log(this.greeting)
             }
         }
     })
